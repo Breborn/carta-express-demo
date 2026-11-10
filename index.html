@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <title>LA PICADA DEL PUERTO • Carta Digital Express | Pedidos WhatsApp</title>
+  <meta name="description" content="Carta digital rápida en 1 pantalla con buscador, categorías y carrito directo a WhatsApp sin comisiones. Página creada por Breborn.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=1.0">
+</head>
+<body>
+
+  <!-- Top Strip (Breborn) -->
+  <aside class="top-strip">
+    <div class="strip-inner">
+      <span>Página creada por <a href="https://breborn.cl" target="_blank" rel="noopener">Breborn</a></span>
+      <a href="https://wa.me/56956823670?text=%C2%A1Hola%20Edo!%20Vi%20la%20maqueta%20Carta%20Express%20de%20Breborn%20y%20quiero%20una%20as%C3%AD%20para%20mi%20local." target="_blank" rel="noopener" class="strip-cta">
+        Quiero mi Carta Express ➔
+      </a>
+    </div>
+  </aside>
+
+  <!-- Centered App Shell (Mobile-First Carta Express) -->
+  <main class="app-shell">
+
+    <!-- Compact Store Profile Header -->
+    <header class="store-card">
+      <div class="store-top">
+        <div class="store-logo">🍔</div>
+        <div class="store-info">
+          <div class="store-badges">
+            <span class="status-pill">🟢 Abierto Hoy</span>
+            <span class="mode-pill">⚡ CARTA EXPRESS</span>
+          </div>
+          <h1>LA PICADA DEL PUERTO</h1>
+          <p class="store-sub">Sándwiches, Chorrillanas, Pizzas &amp; Bebestibles • Viña, Valpo y Limache</p>
+        </div>
+      </div>
+
+      <div class="store-meta-bar">
+        <span>📍 Retiro o Delivery V Región</span>
+        <span>⏱️ 25 – 35 min</span>
+        <span>💬 Pedido 100% sin comisiones</span>
+      </div>
+    </header>
+
+    <!-- Search + Sticky Category Filter Strip -->
+    <section class="controls-sticky">
+      <div class="search-wrap">
+        <span class="s-icon">🔍</span>
+        <input type="search" id="menuSearch" placeholder="Buscar plato, completo, bebida o promo..." autocomplete="off">
+      </div>
+
+      <div class="cat-tabs" id="catTabs">
+        <button type="button" class="cat-pill active" data-cat="todos">✨ Todos</button>
+        <button type="button" class="cat-pill" data-cat="promos">🔥 Promos</button>
+        <button type="button" class="cat-pill" data-cat="sandwiches">🍔 Sándwiches</button>
+        <button type="button" class="cat-pill" data-cat="compartir">🍟 Pizzas &amp; Tablas</button>
+        <button type="button" class="cat-pill" data-cat="bebidas">🥤 Bebidas</button>
+      </div>
+    </section>
+
+    <!-- Compact Menu List -->
+    <section class="menu-list" id="menuList">
+      <!-- Rendered cleanly by app.js -->
+    </section>
+
+    <!-- Compact Breborn Callout inside Carta Express -->
+    <section class="breborn-mini-card">
+      <span class="bm-tag">MODELO CARTA DIGITAL EXPRESS</span>
+      <h3>¿Solo necesitas tu lista de precios online para recibir pedidos al WhatsApp?</h3>
+      <p>Ideal para picadas, botillerías, foodtrucks y emprendimientos que buscan algo directo y rápido sin pagar comisiones a apps de reparto.</p>
+      <a href="https://wa.me/56956823670?text=%C2%A1Hola%20Edo!%20Me%20interesa%20el%20formato%20Carta%20Express%20para%20mi%20negocio." target="_blank" rel="noopener" class="bm-btn">
+        💬 Cotizar mi Carta Express con Breborn
+      </a>
+    </section>
+
+    <!-- Minimal Footer -->
+    <footer class="mini-footer">
+      <p>&copy; 2026 LA PICADA DEL PUERTO. Página creada por <a href="https://breborn.cl" target="_blank" rel="noopener">Breborn</a>.</p>
+    </footer>
+
+  </main>
+
+  <!-- Sticky Bottom Cart Action Bar -->
+  <div class="bottom-cart-bar" id="bottomCartBar">
+    <button type="button" class="cart-launch-btn" id="openOrderModalBtn">
+      <div class="cl-left">
+        <span class="cl-count" id="barCount">0</span>
+        <span class="cl-label">Ver Mi Pedido</span>
+      </div>
+      <strong class="cl-total" id="barTotal">$0</strong>
+    </button>
+  </div>
+
+  <!-- Order Confirmation Sheet / Modal -->
+  <div class="sheet-backdrop" id="sheetBackdrop"></div>
+  <section class="order-sheet" id="orderSheet" aria-hidden="true">
+    <div class="sheet-head">
+      <div>
+        <span class="sh-kicker">RESUMEN CARTA EXPRESS</span>
+        <h2>Tu Pedido para WhatsApp</h2>
+      </div>
+      <button type="button" class="sheet-close" id="closeSheetBtn" aria-label="Cerrar">✕</button>
+    </div>
+
+    <div class="sheet-body">
+      <div id="sheetItems" class="sheet-items"></div>
+
+      <div class="sheet-form">
+        <label class="sf-label">Modalidad de entrega</label>
+        <div class="mode-switch" id="deliverySwitch">
+          <button type="button" class="ms-btn active" data-mode="Retiro en Local" data-fee="0">🏪 Retiro en Local ($0)</button>
+          <button type="button" class="ms-btn" data-mode="Delivery Domicilio" data-fee="2000">🛵 Delivery (+$2.000)</button>
+        </div>
+
+        <div class="sf-grid">
+          <div>
+            <label for="custName" class="sf-label">Tu nombre *</label>
+            <input type="text" id="custName" placeholder="Ej: Camilo Soto">
+          </div>
+          <div>
+            <label for="payMethod" class="sf-label">Medio de pago</label>
+            <select id="payMethod">
+              <option value="Transferencia">Transferencia</option>
+              <option value="Efectivo">Efectivo</option>
+              <option value="Tarjeta / Redcompra al recibir">Tarjeta al recibir</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="addressWrap" style="display:none;">
+          <label for="custAddress" class="sf-label">Dirección de envío *</label>
+          <input type="text" id="custAddress" placeholder="Ej: Av. Urmeneta 420, depto 12">
+        </div>
+
+        <div>
+          <label for="custNotes" class="sf-label">Indicaciones (sin cebolla, cubiertos, etc.)</label>
+          <input type="text" id="custNotes" placeholder="Ej: Mayo aparte, timbre malo">
+        </div>
+      </div>
+    </div>
+
+    <div class="sheet-footer">
+      <div class="sf-totals">
+        <div><span>Productos</span><strong id="sheetSubtotal">$0</strong></div>
+        <div><span>Entrega</span><strong id="sheetDelivery">$0</strong></div>
+        <div class="sf-grand"><span>Total Pedido</span><strong id="sheetGrandTotal">$0</strong></div>
+      </div>
+
+      <button type="button" class="wa-submit-btn" id="sendWaOrderBtn">
+        <span>💬 Enviar Pedido por WhatsApp</span>
+      </button>
+    </div>
+  </section>
+
+  <div class="toast" id="toast">✓ Agregado</div>
+
+  <script src="app.js?v=1.0"></script>
+</body>
+</html>
