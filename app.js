@@ -212,7 +212,7 @@ function sendWaOrder() {
 
   const total = subtotal + State.deliveryFee;
   const msg = [
-    `¡Hola! 🍔 Pedido vía *Carta Express* de *LA PICADA DEL PUERTO*:`,
+    `¡Hola! 🍔 Pedido vía *Carta Express* de *CARTA EXPRESS*:`,
     ``,
     ...itemLines,
     ``,
